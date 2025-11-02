@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmmyMillionaire - Football Edition</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle, #0a0f3d, #000);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    img.logo {
+      width: 180px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #1e90ff;
+      text-shadow: 0 0 15px #00b7ff;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #1e90ff;
+    }
+
+    .start-btn {
+      background-color: #1e90ff;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00b7ff;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .start-btn:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <img class="logo" src="https://i.postimg.cc/N0Dxy4F3/Emmy-s-Millionaire-Game-Logo-with-Trophy-Icon.png" alt="EmmyMillionaire Logo">
+  <h1>🎯 EmmyMillionaire</h1>
+  <h2>Football Edition ⚽</h2>
+  <p>Test your Premier League knowledge and become a millionaire! 💰</p>
+  <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+
+  <script>
+    function startQuiz() {
+      window.location.href = "quiz.html";
+    }
+  </script>
+</body>
+</html>
