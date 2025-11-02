@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Over - EmmyMillionaire</title>
+  <style>
+    body {
+      background: radial-gradient(circle, #3a0a0a, #000);
+      color: white;
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff4d4d;
+      text-shadow: 0 0 15px #ff0000;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 20px 0;
+      color: #fff;
+    }
+
+    .restart-btn {
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00b7ff;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .restart-btn:hover {
+      background-color: #00b7ff;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 12px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>❌ Game Over!</h1>
+  <p>Better luck next time. You left with your accumulated money.</p>
+  <button class="restart-btn" onclick="restartGame()">Restart Quiz</button>
+
+  <footer>Created by <strong>Emmyventures</strong> © 2025</footer>
+
+  <script>
+    function restartGame() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
