@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splash</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: #001233; /* Deep blue */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .center-circle {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: red;
+      border-radius: 50%;
+      z-index: 5;
+    }
+
+    .orbit {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      animation: spinFast 2s linear infinite, moveIn 3s ease-in-out 2s forwards;
+    }
+
+    .box {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-color: black;
+      border: 3px solid #00ff00;
+      border-radius: 8px;
+    }
+
+    .box1 { top: 0; left: 50%; transform: translate(-50%, -50%); }
+    .box2 { right: 0; top: 50%; transform: translate(50%, -50%); }
+    .box3 { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
+    .box4 { left: 0; top: 50%; transform: translate(-50%, -50%); }
+
+    @keyframes spinFast {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(720deg); } /* Fast spin */
+    }
+
+    @keyframes moveIn {
+      0% { width: 250px; height: 250px; }
+      100% { width: 100px; height: 100px; } /* Moves inward */
+    }
+  </style>
+</head>
+<body>
+  <div class="orbit">
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+  </div>
+  <div class="center-circle"></div>
+
+  <script>
+    // Redirect after animation completes
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 5000);
+  </script>
+</body>
+</html>
