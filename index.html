@@ -5,18 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EmmyMillionaire - Football Edition</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      margin: 0;
-      padding: 0;
       font-family: "Poppins", sans-serif;
       background: radial-gradient(circle, #0a0f3d, #000);
       color: white;
+      overflow: hidden;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
       text-align: center;
+    }
+
+    /* SPLASH SCREEN */
+    .splash {
+      position: fixed;
+      inset: 0;
+      background-color: #001A4D;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      transition: opacity 0.8s ease;
+    }
+
+    .container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      animation: rotateContainer 0.7s linear infinite;
+    }
+
+    .box {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: black;
+      border-radius: 6px;
+      transition: all 1s ease;
+    }
+
+    .box:nth-child(1) { top: 0; left: 0; }
+    .box:nth-child(2) { top: 0; right: 0; }
+    .box:nth-child(3) { bottom: 0; left: 0; }
+    .box:nth-child(4) { bottom: 0; right: 0; }
+
+    @keyframes rotateContainer {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .inward {
+      transform: translate(55px, 55px) scale(0);
+      opacity: 0;
+    }
+
+    /* MAIN PAGE CONTENT */
+    .main-content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
 
     img.logo {
@@ -50,19 +103,59 @@
       transition: all 0.2s ease-in-out;
     }
 
-    .start-btn:active {
-      transform: scale(0.95);
+    .start-btn:hover {
+      background-color: #00b7ff;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 12px;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <img class="logo" src="https://i.postimg.cc/N0Dxy4F3/Emmy-s-Millionaire-Game-Logo-with-Trophy-Icon.png" alt="EmmyMillionaire Logo">
-  <h1>🎯 EmmyMillionaire</h1>
-  <h2>Football Edition ⚽</h2>
-  <p>Test your Premier League knowledge and become a millionaire! 💰</p>
-  <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+
+  <!-- SPLASH SCREEN -->
+  <div class="splash">
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </div>
+
+  <!-- MAIN PAGE -->
+  <div class="main-content">
+    <img class="logo" src="https://i.postimg.cc/N0Dxy4F3/Emmy-s-Millionaire-Game-Logo-with-Trophy-Icon.png" alt="EmmyMillionaire Logo">
+    <h1>🎯 EmmyMillionaire</h1>
+    <h2>Football Edition ⚽</h2>
+    <p>Test your Premier League knowledge and become a millionaire! 💰</p>
+    <button class="start-btn" onclick="startQuiz()">Start Quiz</button>
+
+    <footer>Created by <strong>Emmyventures</strong> © 2025</footer>
+  </div>
 
   <script>
+    // Splash animation timing
+    setTimeout(() => {
+      document.querySelectorAll('.box').forEach(box => {
+        box.classList.add('inward');
+      });
+    }, 2500);
+
+    setTimeout(() => {
+      document.querySelector('.splash').style.opacity = '0';
+      setTimeout(() => {
+        document.querySelector('.splash').style.display = 'none';
+        document.querySelector('.main-content').style.display = 'flex';
+      }, 800);
+    }, 3500);
+
+    // Start game
     function startQuiz() {
       window.location.href = "quiz.html";
     }
